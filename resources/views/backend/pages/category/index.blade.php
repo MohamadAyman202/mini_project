@@ -251,7 +251,7 @@
                                 <div class="">
                                     <label class="form-label">Title</label>
                                     <input class="form-control @error('title') is-invalid @enderror" type="text"
-                                        name="Title" value="{{ old('title') }}" placeholder="Title" />
+                                        name="title" value="{{ old('title') }}" placeholder="Title" />
                                     @error('title')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror

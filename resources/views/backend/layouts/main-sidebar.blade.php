@@ -16,7 +16,7 @@
                 src="{{ URL::asset('backend/assets/img/brand/favicon-white.png') }}" class="logo-icon dark-theme"
                 alt="logo"></a> --}}
         <a class="" href="{{ route('admin.dashboard') }}">
-            <p class="mb-0 text-primary " style="font-size: 35px;font-weight:bold">توريداتي</p>
+            <p class="mb-0 text-primary " style="font-size: 35px;font-weight:bold">Tawredate</p>
         </a>
     </div>
     <div class="main-sidemenu">

@@ -69,7 +69,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="" class="form-label">Meta Description</label>
-                                    <textarea class="form-control @error('meta_description') is-invalid @enderror" name="Meta Description" id=""
+                                    <textarea class="form-control @error('meta_description') is-invalid @enderror" name="meta_description" id=""
                                         placeholder="Meta Description" rows="6">{{ old('meta_description') }}</textarea>
                                     @error('meta_description')
                                         <small id="helpId" class="text-danger">{{ $message }}</small>
@@ -81,7 +81,7 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label">Description</label>
 
-                                    <textarea id="editor1" class="form-control @error('description') is-invalid @enderror" name="Description"
+                                    <textarea id="editor1" class="form-control @error('description') is-invalid @enderror" name="description"
                                         id="" rows="10" placeholder="Description">{{ old('description') }}</textarea>
                                     @error('description')
                                         <small id="helpId" class="text-danger">{{ $message }}</small>

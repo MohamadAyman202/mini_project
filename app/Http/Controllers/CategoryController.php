@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
-use App\Services\SystemServices;
-use Illuminate\Http\Request;
+use App\Services\CategoryServices;
 use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
 {
-    private $systemServices;
-    function __construct(SystemServices $systemServices)
+    private $CategoryServices;
+    function __construct(CategoryServices $CategoryServices)
     {
-        $this->systemServices = $systemServices;
+        $this->CategoryServices = $CategoryServices;
     }
     /**
      * Display a listing of the resource.
@@ -40,8 +39,8 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $data = $this->data($request);
-        $data['slug'] = str()->slug($request->title_en);
-        return $this->systemServices->createSystem(Category::query(), $data, 'category', null, $request);
+        $data['slug'] = str()->slug($request->title);
+        return $this->CategoryServices->create($data);
     }
 
     /**
@@ -67,7 +66,8 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, $slug)
     {
         $data = $this->data($request);
-        return $this->systemServices->editSystem(Category::query(), $slug, $data, 'category', null, $request);
+
+        return $this->CategoryServices->edit($slug, $data);
     }
 
     /**
@@ -75,7 +75,7 @@ class CategoryController extends Controller
      */
     public function destroy($slug)
     {
-        return $this->systemServices->deleteSystem(Category::query(), $slug, 'Category');
+        return $this->CategoryServices->delete($slug);
     }
 
     public function data($request): array
@@ -84,6 +84,13 @@ class CategoryController extends Controller
         $data['title'] = $request->title;
         $data['description'] = $request->description;
         $data['admin_id'] = auth()->user()->id;
+
+        if ($request->hasFile('photo')) {
+            $photo_name = time() . '.' . $request->file('photo')->extension();
+            $data['photo'] = "uploads/category/$photo_name";
+            $request->file('photo')->move(public_path("uploads/category"), $photo_name);
+        }
+
         return $data;
     }
 }

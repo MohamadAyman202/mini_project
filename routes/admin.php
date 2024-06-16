@@ -28,10 +28,8 @@ Route::middleware('auth:admin')->group(function () {
     // Start Category
     Route::controller(CategoryController::class)->group(function () {
         Route::get('category', 'index')->name('category.index');
-        Route::get('category/create', 'create')->name('category.create');
         Route::post('category/store', 'store')->name('category.store');
-        Route::get('category/edit/{slug}', 'edit')->name('category.edit');
-        Route::put('category/update/{slug}', 'update')->name('category.update');
+        Route::patch('category/update/{slug}', 'update')->name('category.update');
         Route::delete('category/destroy/{slug}', 'destroy')->name('category.destroy');
     });
 
@@ -41,7 +39,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('products/create', 'create')->name('products.create');
         Route::post('products/store', 'store')->name('products.store');
         Route::get('products/edit/{slug}', 'edit')->name('products.edit');
-        Route::put('products/update/{slug}', 'update')->name('products.update');
+        Route::patch('products/update/{slug}', 'update')->name('products.update');
         Route::delete('products/destroy/{slug}', 'destroy')->name('products.destroy');
     });
 
