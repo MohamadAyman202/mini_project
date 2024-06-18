@@ -71,10 +71,8 @@ class dataScraping extends Command
                         });
                         $products['meta_description'] = 'مرحبًا، إنه لأمر مؤلم حقًا متابعة السمنة. شيء عن تلك الرغبة في بعض الأحيان';
                         $products['description'] = "مرحبًا، إنه لأمر مؤلم حقًا متابعة السمنة. دع الزمن يهرب من الشيء بتلك الرغبة، فاللين أبدًا، ولا بهذا الألم والألم والاختيار، ولكن العقل سيفسر كل هروبنا.";
-                        $products['price'] = 0;
                         $products['category_id'] = $category_id;
                         $products['photo'] = "mohamad";
-                        $products['quantity'] = "100";
                         $products['admin_id'] = 1;
                         $products['status'] = "inactive";
                         $dataProducts[] = $products;

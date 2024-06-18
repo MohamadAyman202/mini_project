@@ -29,7 +29,8 @@
                                         <div class="mb-3">
                                             <p class="fs-6">{{ $product->description }}</p>
                                         </div>
-                                        <div class="mb-3 d-flex align-items-center ">
+                                        <div class="mb-3 d-flex align-items-center ">4
+                                            product => category -> 10 category table row 
                                             <p class="">الفئه: {{ $product->category->title }}</p>
                                         </div>
                                     </div>
